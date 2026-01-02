@@ -63,7 +63,6 @@ const testConfig: TestItem[] = [
             mmFile: 'examples/example.mm',
             proofIds: ['th1'],
             all: false,
-            singleThread: false,
         } satisfies GetArgs,
     },
     {
@@ -75,7 +74,6 @@ const testConfig: TestItem[] = [
             mmFile: 'examples/example.mm',
             proofIds: [],
             all: true,
-            singleThread: false,
         } satisfies GetArgs,
     },
     {
@@ -87,7 +85,6 @@ const testConfig: TestItem[] = [
             mmFile: 'examples/example.mm',
             proofIds: ['th1'],
             all: false,
-            singleThread: false,
         } satisfies CompressArgs,
     },
     {
@@ -99,7 +96,6 @@ const testConfig: TestItem[] = [
             mmFile: 'examples/example.mm',
             proofIds: [],
             all: false,
-            singleThread: false,
         } satisfies CompressArgs,
     },
     {
@@ -111,7 +107,6 @@ const testConfig: TestItem[] = [
             mmFile: 'examples/example.mm',
             proofIds: [],
             all: true,
-            singleThread: false,
         } satisfies CompressArgs,
     },
     {
@@ -123,7 +118,6 @@ const testConfig: TestItem[] = [
             mmFile: 'examples/example.mm',
             proofIds: ['th1'],
             all: false,
-            singleThread: false,
         } satisfies DecompressArgs,
     },
     {
@@ -135,7 +129,6 @@ const testConfig: TestItem[] = [
             mmFile: 'examples/example.mm',
             proofIds: [],
             all: true,
-            singleThread: false,
         } satisfies DecompressArgs,
     },
     {
@@ -167,7 +160,6 @@ const testConfig: TestItem[] = [
             mmFile: 'examples/example.mm',
             subCommand: 'before',
             proofIdOrCount: 'th1',
-            singleThread: false,
         } satisfies TruncateBeforeArgs,
     },
     {
@@ -179,7 +171,6 @@ const testConfig: TestItem[] = [
             mmFile: 'examples/example.mm',
             subCommand: 'after',
             proofIdOrCount: 'th1',
-            singleThread: false,
         } satisfies TruncateAfterArgs,
     },
     {
@@ -200,7 +191,6 @@ const testConfig: TestItem[] = [
             mmFile: 'examples/example.mm',
             subCommand: 'count',
             proofIdOrCount: '42',
-            singleThread: false,
         } satisfies TruncateCountArgs,
     },
 ];

@@ -11,12 +11,12 @@ const commands = [
 
 export type CommonArgs = {
     mmFile: string;
-    singleThread: boolean;
 };
 
 export type UnifyArgs = CommonArgs & {
     command: 'unify';
     mmpFiles: string[];
+    singleThread: boolean;
 };
 
 export type GetArgs = CommonArgs & {
@@ -79,7 +79,8 @@ export const parseArgs = (argv: string[]): Args => {
                     .positional('mmpFilenames', {
                         description: 'Zero or more .mmp files',
                         type: 'string',
-                    });
+                    })
+                    .option('single-thread', { alias: 's' });
             },
         )
         .command(
@@ -173,7 +174,6 @@ export const parseArgs = (argv: string[]): Args => {
                     });
             },
         )
-        .option('single-thread', { alias: 's' })
         .middleware((argv) => {
             const fullCommand = commands.find(
                 (command) => argv._[0] === command.charAt(0),
@@ -192,7 +192,6 @@ export const parseArgs = (argv: string[]): Args => {
                 mmFile: parsed.mmFile as string,
                 proofIds: parsed.proofIds as string[],
                 all: parsed.all ? true : false,
-                singleThread: parsed.singleThread ? true : false,
             };
         case 'compress':
             return {
@@ -200,7 +199,6 @@ export const parseArgs = (argv: string[]): Args => {
                 mmFile: parsed.mmFile as string,
                 proofIds: parsed.proofIds as string[],
                 all: parsed.all ? true : false,
-                singleThread: parsed.singleThread ? true : false,
             };
         case 'decompress':
             return {
@@ -208,7 +206,6 @@ export const parseArgs = (argv: string[]): Args => {
                 mmFile: parsed.mmFile as string,
                 proofIds: parsed.proofIds as string[],
                 all: parsed.all ? true : false,
-                singleThread: parsed.singleThread ? true : false,
             };
         case 'truncate':
             const optionCount = [
@@ -230,7 +227,6 @@ export const parseArgs = (argv: string[]): Args => {
                     mmFile: parsed.mmFile as string,
                     subCommand: 'before',
                     proofIdOrCount: parsed.proofIdOrCount as string,
-                    singleThread: parsed.singleThread ? true : false,
                 };
             } else if (parsed.after) {
                 return {
@@ -238,7 +234,6 @@ export const parseArgs = (argv: string[]): Args => {
                     mmFile: parsed.mmFile as string,
                     subCommand: 'after',
                     proofIdOrCount: parsed.proofIdOrCount as string,
-                    singleThread: parsed.singleThread ? true : false,
                 };
             } else {
                 const countString = parsed.proofIdOrCount as string;
@@ -256,7 +251,6 @@ export const parseArgs = (argv: string[]): Args => {
                     mmFile: parsed.mmFile as string,
                     subCommand: 'count',
                     proofIdOrCount: countString,
-                    singleThread: parsed.singleThread ? true : false,
                 };
             }
         case 'unify':

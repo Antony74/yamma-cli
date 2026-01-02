@@ -44,7 +44,7 @@ export const cli = async () => {
                 const unifier = await createUnifierWithProgress(
                     mmFile,
                     mmData,
-                    args.singleThread,
+                    true,
                     false,
                 );
 
