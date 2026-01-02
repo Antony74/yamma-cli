@@ -28,11 +28,12 @@
     "dependencies": {
         "picocolors": "^1.1.1",
         "pretty-ms": "^9.3.0",
-        "yamma-hl-api": "github:Antony74/yamma-hl-api#build",
+        "yamma-hl-api": "file:../yamma-hl-api",
         "yargs": "^18.0.0"
     },
     "devDependencies": {
         "@types/node": "^25.0.3",
+        "@types/yargs": "^17.0.35",
         "@vitest/coverage-v8": "^4.0.16",
         "prettier": "^3.7.4",
         "rimraf": "^6.1.2",

@@ -1,7 +1,7 @@
 import fsp from 'fs/promises';
-import { parseMmp } from '../api/unifier';
+import { parseMmp } from 'yamma-hl-api';
 import { getDiagnosticsString, info } from './diagnosticsString';
-import { Unifier, UnifierResult } from '../api/unifierDefinitions';
+import { Unifier, UnifierResult } from 'yamma-hl-api';
 
 export const processUnifierResult = async (
     result: UnifierResult,

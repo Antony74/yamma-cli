@@ -1,5 +1,5 @@
 import { getHeapStatistics } from 'v8';
-import { MmParser, MmParserEvents } from 'yamma-server/src/mm/MmParser';
+import { MmParser, MmParserEvents } from 'yamma-hl-api';
 
 const bytesToMB = (bytes: number) => bytes / 1024 / 1024;
 

@@ -4,7 +4,6 @@
 // e.g. yammau examples/example.mm examples/ununified.mmp
 
 import { cli } from './cli/cli';
-export * from './api/unifier';
 import { isMainThread } from 'worker_threads';
 
 if (require.main === module && isMainThread) {
