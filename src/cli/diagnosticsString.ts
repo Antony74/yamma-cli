@@ -1,5 +1,5 @@
 import * as color from 'picocolors';
-import { MmpParser } from 'yamma-server/src/mmp/MmpParser';
+import { MmpParser } from 'yamma-hl-api';
 
 export const info = (s: string) => {
     console.log(color.gray(s));

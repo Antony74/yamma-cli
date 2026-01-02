@@ -1,8 +1,12 @@
 import * as color from 'picocolors';
-import { ProgressCallback } from 'yamma-hl-api';
-import { ProvableStatement } from 'yamma-hl-api';
-import { createUnifier } from 'yamma-hl-api';
-import { Unifier } from 'yamma-hl-api';
+
+import {
+    Unifier,
+    ProgressCallback,
+    createUnifier,
+    ProvableStatement,
+} from 'yamma-hl-api';
+
 import { pollMemory } from './heapStatistics';
 
 export const createUnifierWithProgress = async (

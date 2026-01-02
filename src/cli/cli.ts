@@ -2,17 +2,20 @@ import fsp from 'fs/promises';
 
 import prettyms from 'pretty-ms';
 
+import {
+    ProvableStatement,
+    truncateBefore,
+    truncateAfter,
+    truncateCount,
+    compressOrDecompressProofs,
+} from 'yamma-hl-api';
+
 import { createUnifierWithProgress } from './createUnifierWithProgress';
 import { parseArgs } from './parseArgs';
 import { info } from './diagnosticsString';
 import { unify } from './unify';
 import { get } from './get';
-import { compressOrDecompressProofs } from '../api/compressOrDecompressProofs';
-import { truncateCount } from '../api/truncateCount';
 import { getHeapLimitMB, getPeakMB, pollMemory } from './heapStatistics';
-import { truncateAfter } from '../api/truncateAfter';
-import { truncateBefore } from '../api/truncateBefore';
-import { ProvableStatement } from 'yamma-server/src/mm/ProvableStatement';
 
 export const cli = async () => {
     const startTime = performance.now();

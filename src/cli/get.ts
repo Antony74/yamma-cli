@@ -1,5 +1,4 @@
-import { parseMmp } from '../api/unifier';
-import { Unifier } from '../api/unifierDefinitions';
+import { Unifier } from 'yamma-hl-api';
 import { info } from './diagnosticsString';
 import { processUnifierResult } from './unify';
 
