@@ -3,7 +3,7 @@
 // e.g. npm start examples/example.mm examples/ununified.mmp
 // e.g. yammau examples/example.mm examples/ununified.mmp
 
-import { cli } from './cli/cli';
+import { cli } from './cli';
 import { isMainThread } from 'worker_threads';
 
 if (require.main === module && isMainThread) {

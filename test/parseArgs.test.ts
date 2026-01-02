@@ -9,7 +9,7 @@ import {
     TruncateBeforeArgs,
     TruncateCountArgs,
     UnifyArgs,
-} from '../../src/cli/parseArgs';
+} from '../src/parseArgs';
 
 type TestItem =
     | { name: string; cmd: string; outcome: 'return'; expected: Args }
