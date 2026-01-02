@@ -1,5 +1,5 @@
 {
-    "name": "yamma-unifier",
+    "name": "yamma-cli",
     "version": "1.0.0",
     "main": "dist/index.js",
     "bin": {
@@ -24,7 +24,7 @@
         "url": "https://github.com/Antony74/yamma-unifier/issues"
     },
     "homepage": "https://github.com/Antony74/yamma-unifier#readme",
-    "description": "API and CLI for Yamma's unifier.  Yamma's a Metamath Assistant",
+    "description": "Command line interface for Yamma's unifier (Yamma's A MetaMath proof Assistant)",
     "dependencies": {
         "picocolors": "^1.1.1",
         "pretty-ms": "^9.3.0",
