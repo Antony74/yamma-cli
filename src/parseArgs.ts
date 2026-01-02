@@ -80,7 +80,9 @@ export const parseArgs = (argv: string[]): Args => {
                         description: 'Zero or more .mmp files',
                         type: 'string',
                     })
-                    .option('single-thread', { alias: 's' });
+                    .option('single-thread', { alias: 's' })
+                    .example('yamma unify demo0.mm th1.mmp', '')
+                    .example('yamma unify set.mm impt.mmp dju1p1e2.mmp', '');
             },
         )
         .command(
@@ -99,7 +101,9 @@ export const parseArgs = (argv: string[]): Args => {
                     })
                     .option('all', {
                         description: 'Create .mmp files for all(!) proofs',
-                    });
+                    })
+                    .example('yamma get demo0.mm th1', '')
+                    .example('yamma get set.mm impt dju1p1e2', '');
             },
         )
         .command(
@@ -118,7 +122,9 @@ export const parseArgs = (argv: string[]): Args => {
                     })
                     .option('all', {
                         description: 'Compress all(!) proofs',
-                    });
+                    })
+                    .example('yamma compress demo0.mm th1', '')
+                    .example('yamma compress set.mm impt dju1p1e2', '');
             },
         )
         .command(
@@ -137,7 +143,9 @@ export const parseArgs = (argv: string[]): Args => {
                     })
                     .option('all', {
                         description: 'Decompress all(!) proofs',
-                    });
+                    })
+                    .example('yamma decompress demo0.mm th1', '')
+                    .example('yamma decompress set.mm impt dju1p1e2', '');
             },
         )
         .command(
@@ -171,7 +179,10 @@ export const parseArgs = (argv: string[]): Args => {
                         description:
                             'Proof to truncate .mm before or after, or total count of proofs desired after truncation',
                         type: 'string',
-                    });
+                    })
+                    .example('yamma truncate set.mm --before dju1p1e2', '')
+                    .example('yamma truncate set.mm --after impt', '')
+                    .example('yamma truncate set.mm --count 100', '');
             },
         )
         .middleware((argv) => {
