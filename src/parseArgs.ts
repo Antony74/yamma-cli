@@ -64,6 +64,27 @@ export type Args =
     | TruncateAfterArgs
     | TruncateCountArgs;
 
+export const examples = {
+    unify: [
+        'yamma unify demo0.mm th1.mmp',
+        'yamma unify set.mm impt.mmp dju1p1e2.mmp',
+    ],
+    get: ['yamma get demo0.mm th1', 'yamma get set.mm impt dju1p1e2'],
+    compress: [
+        'yamma compress demo0.mm th1',
+        'yamma compress set.mm impt dju1p1e2',
+    ],
+    decompress: [
+        'yamma decompress demo0.mm th1',
+        'yamma decompress set.mm impt dju1p1e2',
+    ],
+    truncate: [
+        'yamma truncate set.mm --before dju1p1e2',
+        'yamma truncate set.mm --after impt',
+        'yamma truncate set.mm --count 100',
+    ],
+} as const;
+
 export const parseArgs = (argv: string[]): Args => {
     const parsed = yargs(hideBin(argv))
         .scriptName('yamma')
@@ -81,8 +102,8 @@ export const parseArgs = (argv: string[]): Args => {
                         type: 'string',
                     })
                     .option('single-thread', { alias: 's' })
-                    .example('yamma unify demo0.mm th1.mmp', '')
-                    .example('yamma unify set.mm impt.mmp dju1p1e2.mmp', '');
+                    .example(examples.unify[0], '')
+                    .example(examples.unify[1], '');
             },
         )
         .command(
@@ -102,8 +123,8 @@ export const parseArgs = (argv: string[]): Args => {
                     .option('all', {
                         description: 'Create .mmp files for all(!) proofs',
                     })
-                    .example('yamma get demo0.mm th1', '')
-                    .example('yamma get set.mm impt dju1p1e2', '');
+                    .example(examples.get[0], '')
+                    .example(examples.get[1], '');
             },
         )
         .command(
@@ -123,8 +144,8 @@ export const parseArgs = (argv: string[]): Args => {
                     .option('all', {
                         description: 'Compress all(!) proofs',
                     })
-                    .example('yamma compress demo0.mm th1', '')
-                    .example('yamma compress set.mm impt dju1p1e2', '');
+                    .example(examples.compress[0], '')
+                    .example(examples.compress[1], '');
             },
         )
         .command(
@@ -144,8 +165,8 @@ export const parseArgs = (argv: string[]): Args => {
                     .option('all', {
                         description: 'Decompress all(!) proofs',
                     })
-                    .example('yamma decompress demo0.mm th1', '')
-                    .example('yamma decompress set.mm impt dju1p1e2', '');
+                    .example(examples.decompress[0], '')
+                    .example(examples.decompress[1], '');
             },
         )
         .command(
@@ -180,9 +201,9 @@ export const parseArgs = (argv: string[]): Args => {
                             'Proof to truncate .mm before or after, or total count of proofs desired after truncation',
                         type: 'string',
                     })
-                    .example('yamma truncate set.mm --before dju1p1e2', '')
-                    .example('yamma truncate set.mm --after impt', '')
-                    .example('yamma truncate set.mm --count 100', '');
+                    .example(examples.truncate[0], '')
+                    .example(examples.truncate[1], '')
+                    .example(examples.truncate[2], '');
             },
         )
         .middleware((argv) => {
