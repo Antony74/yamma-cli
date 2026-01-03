@@ -9,7 +9,7 @@
         "doc": "tsx doc/doc.ts",
         "build": "rimraf dist && tsc",
         "prettier": "prettier --write .",
-        "profile": "npm run build && tsx profile.ts",
+        "profile": "npm run build && tsx scripts/profile.ts",
         "start": "tsx src/index.ts",
         "test": "vitest",
         "test:coverage": "vitest --coverage"
