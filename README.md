@@ -4,7 +4,9 @@ Command line interface (CLI) for the [Yamma](https://github.com/glacode/yamma) u
 
 ***Y***amma's ***a*** ***M***eta***m***ath proof ***a***ssistant for Visual Studio Code.
 
-This package allows it's unifier functionality to the access from the command line.
+This package allows it's unifier functionality to the accessed from the command line.
+
+It has been developed alongside [yamma-hl-api](https://github.com/Antony74/yamma-hl-api), which provides a high API for Yamma, so that this CLI is a thin layer over that.
 
 ## Install
 

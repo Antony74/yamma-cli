@@ -6,7 +6,7 @@ import mustache from 'mustache';
 import { execCmd } from './execCmd';
 import { examples } from '../src/parseArgs';
 
-const templateFilename = path.join(__dirname, 'template.MD');
+const templateFilename = path.join(__dirname, 'template.md');
 const rootDir = path.join(__dirname, '..');
 const readmeFilename = path.join(__dirname, '..', 'README.md');
 const examplesFilename = path.join(__dirname, 'examples.bat');
