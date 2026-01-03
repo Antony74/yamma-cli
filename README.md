@@ -8,7 +8,7 @@ This package allows it's unifier functionality to the access from the command li
 
 ## Install
 
-Requires NodeJS - https://nodejs.org - version 22.18.0 or higher.
+Requires NodeJS - https://nodejs.org
 
 With NodeJS installed, the command to install yamma-cli is
 

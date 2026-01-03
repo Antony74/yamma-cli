@@ -48,8 +48,5 @@
         "tabWidth": 4,
         "singleQuote": true
     },
-    "type": "commonjs",
-    "engines": {
-        "node": ">=22.18.0"
-    }
+    "type": "commonjs"
 }
