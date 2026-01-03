@@ -6,7 +6,7 @@
         "yamma": "dist/index.js"
     },
     "scripts": {
-        "doc": "tsx doc/doc.ts",
+        "doc": "tsx scripts/doc.ts",
         "build": "rimraf dist && tsc",
         "prettier": "prettier --write .",
         "profile": "npm run build && tsx scripts/profile.ts",

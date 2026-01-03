@@ -2,17 +2,47 @@ import fsp from 'fs/promises';
 import path from 'path';
 
 import mustache from 'mustache';
+import { execCmd } from './execCmd';
 
 const templateFilename = path.join(__dirname, 'template.MD');
+const rootDir = path.join(__dirname, '..');
 const readmeFilename = path.join(__dirname, '..', 'README.md');
 
-const data = {
+const curlData = {
     curlDemo0: `curl -L https://github.com/metamath/set.mm/raw/refs/heads/develop/demo0.mm -O`,
     curlSetMm: `curl -L https://github.com/metamath/set.mm/raw/refs/heads/develop/set.mm -O`,
 };
 
+const namedCommands = [
+    ['helpMain', 'npm start -- --help'],
+    ['helpGet', 'npm start -- --help get'],
+    ['helpUnify', 'npm start -- --help unify'],
+    ['helpCompress', 'npm start -- --help compress'],
+    ['helpDecompress', 'npm start -- --help decompress'],
+    ['helpTruncate', 'npm start -- --help truncate'],
+];
+
 const main = async () => {
-    const template = await fsp.readFile(templateFilename, {encoding: 'utf-8'});
+    const template = await fsp.readFile(templateFilename, {
+        encoding: 'utf-8',
+    });
+
+    const helpData = await Promise.all(
+        namedCommands.map(async ([name, cmd]) => {
+            const data = await execCmd(cmd, { cwd: rootDir });
+            return [
+                name,
+                data
+                    .split('\n')
+                    .filter((s) => !s.startsWith('> '))
+                    .join('\n')
+                    .trim(),
+            ];
+        }),
+    );
+
+    const data = { ...curlData, ...Object.fromEntries(helpData) };
+
     const readme = mustache.render(template, data);
     await fsp.writeFile(readmeFilename, readme);
 };

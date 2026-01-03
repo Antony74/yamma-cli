@@ -35,30 +35,37 @@ These can be found in the Metamath repository - https://github.com/metamath/set.
 ## Usage
 
 ```
-yamma <command>
-
-Commands:
-  yamma unify <mmFile> [mmpFiles...]        Unify any given .mmp filenames
-                                                                    [aliases: u]
-  yamma get <mmFile> [proofIds...]          Get proofs and create .mmp files
-                                                                    [aliases: g]
-  yamma compress <mmFile> [proofIds...]     Compress proofs in .mm  [aliases: c]
-  yamma decompress <mmFile> [proofIds...]   Decompress proofs in .mm[aliases: d]
-  yamma truncate <mmFile> <proofIdOrCount>  Truncate .mm file       [aliases: t]
-
-Options:
-      --help           Show help                                       [boolean]
-      --version        Show version number                             [boolean]
-  -s, --single-thread
+{{{helpMain}}}
 ```
 
 As we can see from from the --help text, the `yamma` command has five sub-commands.  These are documented below.
 
 ### yamma get
 
-### examples
+```
+{{{helpGet}}}
+```
 
-``` shell
-yamma get demo0.mm th1
-yamma get set.mm impt
+### yamma unify
+
+```
+{{{helpUnify}}}
+```
+
+### yamma decompress
+
+```
+{{{helpDecompress}}}
+```
+
+### yamma compress
+
+```
+{{{helpCompress}}}
+```
+
+### yamma truncate
+
+```
+{{{helpTruncate}}}
 ```

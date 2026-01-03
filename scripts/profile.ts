@@ -1,19 +1,9 @@
-import { exec, spawn } from 'child_process';
+import { spawn } from 'child_process';
 import fsp from 'fs/promises';
 import path from 'path';
+import { execCmd } from './execCmd';
 
 const profileCmd = `node --inspect --prof dist/index.js unify /set.mm/set.mm`;
-
-const execCmd = (command: string): Promise<string> => {
-    console.log(command);
-
-    return new Promise((resolve, reject) => {
-        exec(command, { env: process.env }, (error, stdout, stderr) => {
-            console.log(JSON.stringify([error, stdout, stderr], null, 4));
-            resolve(stdout);
-        });
-    });
-};
 
 const clean = async () => {
     const dirlist = await fsp.readdir(__dirname);
