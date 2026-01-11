@@ -7,7 +7,7 @@ import {
     ProvableStatement,
 } from 'yamma-hl-api';
 
-import { pollMemory } from './heapStatistics';
+import { createMmParserAndMonitor, pollMemory } from './heapStatistics';
 
 export const createUnifierWithProgress = async (
     mmFilename: string,
@@ -33,8 +33,12 @@ export const createUnifierWithProgress = async (
 
     console.log(color.gray(`parsing ${mmFilename}`));
 
-    const unifier = await createUnifier(mmData, {
-        mm: { progressCallback, singleThread },
+    const unifier = createUnifier(mmData, {
+        mm: {
+            progressCallback,
+            singleThread,
+            createMmParser: createMmParserAndMonitor,
+        },
     });
 
     const proofCount = Array.from(

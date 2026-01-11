@@ -8,6 +8,7 @@ import {
     truncateAfter,
     truncateCount,
     compressOrDecompressProofs,
+    UnifierConfig,
 } from 'yamma-hl-api';
 
 import { createUnifierWithProgress } from './createUnifierWithProgress';
@@ -15,13 +16,25 @@ import { parseArgs } from './parseArgs';
 import { info } from './diagnosticsString';
 import { unify } from './unify';
 import { get } from './get';
-import { getHeapLimitMB, getPeakMB, pollMemory } from './heapStatistics';
+
+import {
+    createMmParserAndMonitor,
+    getHeapLimitMB,
+    getPeakMB,
+    pollMemory,
+} from './heapStatistics';
 
 export const cli = async () => {
     const startTime = performance.now();
 
     const args = parseArgs(process.argv);
     const { mmFile, command } = args;
+
+    const config: UnifierConfig = {
+        mm: {
+            createMmParser: createMmParserAndMonitor,
+        },
+    };
 
     try {
         info(`reading ${mmFile}`);
@@ -70,6 +83,7 @@ export const cli = async () => {
                             const result = truncateBefore(
                                 mmData,
                                 args.proofIdOrCount,
+                                config,
                             );
                             info(`writing ${mmFile}`);
                             await fsp.writeFile(mmFile, result);
@@ -80,6 +94,7 @@ export const cli = async () => {
                             const result = truncateAfter(
                                 mmData,
                                 args.proofIdOrCount,
+                                config,
                             );
                             info(`writing ${mmFile}`);
                             await fsp.writeFile(mmFile, result);
@@ -90,6 +105,7 @@ export const cli = async () => {
                             const result = truncateCount(
                                 mmData,
                                 parseInt(args.proofIdOrCount),
+                                config,
                             );
                             info(`writing ${mmFile}`);
                             await fsp.writeFile(mmFile, result);
@@ -105,6 +121,8 @@ export const cli = async () => {
                     mmData,
                     args.proofIds,
                     args.all,
+                    config,
+                    (label) => info(`${command}ing ${label}`),
                 );
                 info(`writing ${mmFile}`);
                 await fsp.writeFile(mmFile, result);
@@ -114,7 +132,7 @@ export const cli = async () => {
                 throw new Error(`${command} is not implemented`);
         }
 
-        pollMemory();
+        pollMemory(true);
         const memInfo = `peak mem ${getPeakMB()}MB of ${getHeapLimitMB()}MB`;
 
         const endTime = performance.now();

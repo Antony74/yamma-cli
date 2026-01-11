@@ -1,5 +1,5 @@
 import { getHeapStatistics } from 'v8';
-import { MmParser, MmParserEvents } from 'yamma-hl-api';
+import { MmParser, MmParserEvents, CreateMmParser } from 'yamma-hl-api';
 
 const bytesToMB = (bytes: number) => bytes / 1024 / 1024;
 
@@ -14,8 +14,8 @@ export const getHeapLimitMB = () => {
 let peakMem = getUsedHeapMB();
 let lastPoll = performance.now();
 
-export const pollMemory = () => {
-    if (performance.now() + 50 >= lastPoll) {
+export const pollMemory = (force?: boolean) => {
+    if (force || performance.now() + 50 >= lastPoll) {
         peakMem = Math.max(peakMem, getUsedHeapMB());
         lastPoll = performance.now();
     }
@@ -23,6 +23,9 @@ export const pollMemory = () => {
 
 export const getPeakMB = () => peakMem;
 
-export const monitorMmParser = (mmParser: MmParser) => {
-    mmParser.on(MmParserEvents.newLabel, pollMemory);
-};
+export const createMmParserAndMonitor: CreateMmParser = (...params) => {
+    const mmParser = new MmParser(...params);
+     mmParser.on(MmParserEvents.newLabel, pollMemory);
+    return mmParser;
+}
+
