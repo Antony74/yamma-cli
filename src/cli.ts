@@ -7,7 +7,6 @@ import {
     truncateBefore,
     truncateAfter,
     truncateCount,
-    compressOrDecompressProofs,
     UnifierConfig,
 } from 'yamma-hl-api';
 
@@ -113,21 +112,21 @@ export const cli = async () => {
                         break;
                 }
                 break;
-            case 'compress':
-            case 'decompress': {
-                info(`parsing ${mmFile}`);
-                const result = compressOrDecompressProofs(
-                    command,
-                    mmData,
-                    args.proofIds,
-                    args.all,
-                    config,
-                    (label) => info(`${command}ing ${label}`),
-                );
-                info(`writing ${mmFile}`);
-                await fsp.writeFile(mmFile, result);
-                break;
-            }
+            // case 'compress':
+            // case 'decompress': {
+            //     info(`parsing ${mmFile}`);
+            //     const result = compressOrDecompressProofs(
+            //         command,
+            //         mmData,
+            //         args.proofIds,
+            //         args.all,
+            //         config,
+            //         (label) => info(`${command}ing ${label}`),
+            //     );
+            //     info(`writing ${mmFile}`);
+            //     await fsp.writeFile(mmFile, result);
+            //     break;
+            // }
             default:
                 throw new Error(`${command} is not implemented`);
         }

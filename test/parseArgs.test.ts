@@ -1,8 +1,8 @@
 import { describe, expect, test, vi } from 'vitest';
 import {
     Args,
-    CompressArgs,
-    DecompressArgs,
+    // CompressArgs,
+    // DecompressArgs,
     GetArgs,
     parseArgs,
     TruncateAfterArgs,
@@ -76,61 +76,61 @@ const testConfig: TestItem[] = [
             all: true,
         } satisfies GetArgs,
     },
-    {
-        name: 'compress a proof',
-        cmd: 'npm start compress examples/example.mm th1',
-        outcome: 'return',
-        expected: {
-            command: 'compress',
-            mmFile: 'examples/example.mm',
-            proofIds: ['th1'],
-            all: false,
-        } satisfies CompressArgs,
-    },
-    {
-        name: 'compress nothing',
-        cmd: 'npm start compress examples/example.mm',
-        outcome: 'return',
-        expected: {
-            command: 'compress',
-            mmFile: 'examples/example.mm',
-            proofIds: [],
-            all: false,
-        } satisfies CompressArgs,
-    },
-    {
-        name: 'compress all proofs',
-        cmd: 'npm start compress examples/example.mm --all',
-        outcome: 'return',
-        expected: {
-            command: 'compress',
-            mmFile: 'examples/example.mm',
-            proofIds: [],
-            all: true,
-        } satisfies CompressArgs,
-    },
-    {
-        name: 'decompress a proof',
-        cmd: 'npm start decompress examples/example.mm th1',
-        outcome: 'return',
-        expected: {
-            command: 'decompress',
-            mmFile: 'examples/example.mm',
-            proofIds: ['th1'],
-            all: false,
-        } satisfies DecompressArgs,
-    },
-    {
-        name: 'decompress all proofs',
-        cmd: 'npm start decompress examples/example.mm --all',
-        outcome: 'return',
-        expected: {
-            command: 'decompress',
-            mmFile: 'examples/example.mm',
-            proofIds: [],
-            all: true,
-        } satisfies DecompressArgs,
-    },
+    // {
+    //     name: 'compress a proof',
+    //     cmd: 'npm start compress examples/example.mm th1',
+    //     outcome: 'return',
+    //     expected: {
+    //         command: 'compress',
+    //         mmFile: 'examples/example.mm',
+    //         proofIds: ['th1'],
+    //         all: false,
+    //     } satisfies CompressArgs,
+    // },
+    // {
+    //     name: 'compress nothing',
+    //     cmd: 'npm start compress examples/example.mm',
+    //     outcome: 'return',
+    //     expected: {
+    //         command: 'compress',
+    //         mmFile: 'examples/example.mm',
+    //         proofIds: [],
+    //         all: false,
+    //     } satisfies CompressArgs,
+    // },
+    // {
+    //     name: 'compress all proofs',
+    //     cmd: 'npm start compress examples/example.mm --all',
+    //     outcome: 'return',
+    //     expected: {
+    //         command: 'compress',
+    //         mmFile: 'examples/example.mm',
+    //         proofIds: [],
+    //         all: true,
+    //     } satisfies CompressArgs,
+    // },
+    // {
+    //     name: 'decompress a proof',
+    //     cmd: 'npm start decompress examples/example.mm th1',
+    //     outcome: 'return',
+    //     expected: {
+    //         command: 'decompress',
+    //         mmFile: 'examples/example.mm',
+    //         proofIds: ['th1'],
+    //         all: false,
+    //     } satisfies DecompressArgs,
+    // },
+    // {
+    //     name: 'decompress all proofs',
+    //     cmd: 'npm start decompress examples/example.mm --all',
+    //     outcome: 'return',
+    //     expected: {
+    //         command: 'decompress',
+    //         mmFile: 'examples/example.mm',
+    //         proofIds: [],
+    //         all: true,
+    //     } satisfies DecompressArgs,
+    // },
     {
         name: 'miss mmFile',
         cmd: 'npm start truncate --before th1',

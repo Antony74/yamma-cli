@@ -4,8 +4,8 @@ import { hideBin } from 'yargs/helpers';
 const commands = [
     'unify',
     'get',
-    'compress',
-    'decompress',
+    // 'compress',
+    // 'decompress',
     'truncate',
 ] as const;
 
@@ -25,17 +25,17 @@ export type GetArgs = CommonArgs & {
     all: boolean;
 };
 
-export type CompressArgs = CommonArgs & {
-    command: 'compress';
-    proofIds: string[];
-    all: boolean;
-};
+// export type CompressArgs = CommonArgs & {
+//     command: 'compress';
+//     proofIds: string[];
+//     all: boolean;
+// };
 
-export type DecompressArgs = CommonArgs & {
-    command: 'decompress';
-    proofIds: string[];
-    all: boolean;
-};
+// export type DecompressArgs = CommonArgs & {
+//     command: 'decompress';
+//     proofIds: string[];
+//     all: boolean;
+// };
 
 export type TruncateBeforeArgs = CommonArgs & {
     command: 'truncate';
@@ -58,8 +58,8 @@ export type TruncateCountArgs = CommonArgs & {
 export type Args =
     | UnifyArgs
     | GetArgs
-    | CompressArgs
-    | DecompressArgs
+    // | CompressArgs
+    // | DecompressArgs
     | TruncateBeforeArgs
     | TruncateAfterArgs
     | TruncateCountArgs;
@@ -127,48 +127,48 @@ export const parseArgs = (argv: string[]): Args => {
                     .example(examples.get[1], '');
             },
         )
-        .command(
-            ['compress <mmFile> [proofIds...]', 'c'],
-            'Compress proofs in .mm',
-            (yargs) => {
-                return yargs
-                    .positional('mmFile', {
-                        description: 'A .mm file',
-                        type: 'string',
-                    })
-                    .positional('proofIds', {
-                        describe:
-                            'Zero or more proof identifiers from the .mm file',
-                        type: 'string',
-                    })
-                    .option('all', {
-                        description: 'Compress all(!) proofs',
-                    })
-                    .example(examples.compress[0], '')
-                    .example(examples.compress[1], '');
-            },
-        )
-        .command(
-            ['decompress <mmFile> [proofIds...]', 'd'],
-            'Decompress proofs in .mm',
-            (yargs) => {
-                return yargs
-                    .positional('mmFile', {
-                        description: 'A .mm file',
-                        type: 'string',
-                    })
-                    .positional('proofIds', {
-                        description:
-                            'Zero or more proof identifiers from the .mm file',
-                        type: 'string',
-                    })
-                    .option('all', {
-                        description: 'Decompress all(!) proofs',
-                    })
-                    .example(examples.decompress[0], '')
-                    .example(examples.decompress[1], '');
-            },
-        )
+        // .command(
+        //     ['compress <mmFile> [proofIds...]', 'c'],
+        //     'Compress proofs in .mm',
+        //     (yargs) => {
+        //         return yargs
+        //             .positional('mmFile', {
+        //                 description: 'A .mm file',
+        //                 type: 'string',
+        //             })
+        //             .positional('proofIds', {
+        //                 describe:
+        //                     'Zero or more proof identifiers from the .mm file',
+        //                 type: 'string',
+        //             })
+        //             .option('all', {
+        //                 description: 'Compress all(!) proofs',
+        //             })
+        //             .example(examples.compress[0], '')
+        //             .example(examples.compress[1], '');
+        //     },
+        // )
+        // .command(
+        //     ['decompress <mmFile> [proofIds...]', 'd'],
+        //     'Decompress proofs in .mm',
+        //     (yargs) => {
+        //         return yargs
+        //             .positional('mmFile', {
+        //                 description: 'A .mm file',
+        //                 type: 'string',
+        //             })
+        //             .positional('proofIds', {
+        //                 description:
+        //                     'Zero or more proof identifiers from the .mm file',
+        //                 type: 'string',
+        //             })
+        //             .option('all', {
+        //                 description: 'Decompress all(!) proofs',
+        //             })
+        //             .example(examples.decompress[0], '')
+        //             .example(examples.decompress[1], '');
+        //     },
+        // )
         .command(
             ['truncate <mmFile> <proofIdOrCount>', 't'],
             'Truncate .mm file',
@@ -225,20 +225,20 @@ export const parseArgs = (argv: string[]): Args => {
                 proofIds: parsed.proofIds as string[],
                 all: parsed.all ? true : false,
             };
-        case 'compress':
-            return {
-                command: 'compress',
-                mmFile: parsed.mmFile as string,
-                proofIds: parsed.proofIds as string[],
-                all: parsed.all ? true : false,
-            };
-        case 'decompress':
-            return {
-                command: 'decompress',
-                mmFile: parsed.mmFile as string,
-                proofIds: parsed.proofIds as string[],
-                all: parsed.all ? true : false,
-            };
+        // case 'compress':
+        //     return {
+        //         command: 'compress',
+        //         mmFile: parsed.mmFile as string,
+        //         proofIds: parsed.proofIds as string[],
+        //         all: parsed.all ? true : false,
+        //     };
+        // case 'decompress':
+        //     return {
+        //         command: 'decompress',
+        //         mmFile: parsed.mmFile as string,
+        //         proofIds: parsed.proofIds as string[],
+        //         all: parsed.all ? true : false,
+        //     };
         case 'truncate':
             const optionCount = [
                 parsed.before,
