@@ -20,8 +20,8 @@ const namedCommands = [
     ['helpMain', 'npm start -- --help'],
     ['helpGet', 'npm start -- --help get'],
     ['helpUnify', 'npm start -- --help unify'],
-    ['helpCompress', 'npm start -- --help compress'],
-    ['helpDecompress', 'npm start -- --help decompress'],
+    // ['helpCompress', 'npm start -- --help compress'],
+    // ['helpDecompress', 'npm start -- --help decompress'],
     ['helpTruncate', 'npm start -- --help truncate'],
 ];
 
@@ -67,12 +67,12 @@ const main = async () => {
         callPrefix(`checkmm set.mm`),
         ...examples.get.map(callPrefix),
         ...examples.unify.map(callPrefix),
-        ...examples.decompress.map(callPrefix),
-        callPrefix(`checkmm demo0.mm`),
-        callPrefix(`checkmm set.mm`),
-        ...examples.compress.map(callPrefix),
-        callPrefix(`checkmm demo0.mm`),
-        callPrefix(`checkmm set.mm`),
+        // ...examples.decompress.map(callPrefix),
+        // callPrefix(`checkmm demo0.mm`),
+        // callPrefix(`checkmm set.mm`),
+        // ...examples.compress.map(callPrefix),
+        // callPrefix(`checkmm demo0.mm`),
+        // callPrefix(`checkmm set.mm`),
         ...examples.truncate.map(callPrefix).map(checkmmSuffix),
     ].join('\n');
 

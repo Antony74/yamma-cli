@@ -54,18 +54,6 @@ As we can see from from the --help text, the `yamma` command has five sub-comman
 {{{helpUnify}}}
 ```
 
-### yamma decompress
-
-```
-{{{helpDecompress}}}
-```
-
-### yamma compress
-
-```
-{{{helpCompress}}}
-```
-
 ### yamma truncate
 
 ```

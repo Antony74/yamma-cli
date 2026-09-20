@@ -44,8 +44,6 @@ Commands:
                                                                     [aliases: u]
   yamma get <mmFile> [proofIds...]          Get proofs and create .mmp files
                                                                     [aliases: g]
-  yamma compress <mmFile> [proofIds...]     Compress proofs in .mm  [aliases: c]
-  yamma decompress <mmFile> [proofIds...]   Decompress proofs in .mm[aliases: d]
   yamma truncate <mmFile> <proofIdOrCount>  Truncate .mm file       [aliases: t]
 
 Options:
@@ -96,50 +94,6 @@ Options:
 Examples:
   yamma unify demo0.mm th1.mmp
   yamma unify set.mm impt.mmp dju1p1e2.mmp
-```
-
-### yamma decompress
-
-```
-yamma decompress <mmFile> [proofIds...]
-
-Decompress proofs in .mm
-
-Positionals:
-  mmFile    A .mm file                                       [string] [required]
-  proofIds  Zero or more proof identifiers from the .mm file
-                                                           [array] [default: []]
-
-Options:
-  --help     Show help                                                 [boolean]
-  --version  Show version number                                       [boolean]
-  --all      Decompress all(!) proofs
-
-Examples:
-  yamma decompress demo0.mm th1
-  yamma decompress set.mm impt dju1p1e2
-```
-
-### yamma compress
-
-```
-yamma compress <mmFile> [proofIds...]
-
-Compress proofs in .mm
-
-Positionals:
-  mmFile    A .mm file                                       [string] [required]
-  proofIds  Zero or more proof identifiers from the .mm file
-                                                           [array] [default: []]
-
-Options:
-  --help     Show help                                                 [boolean]
-  --version  Show version number                                       [boolean]
-  --all      Compress all(!) proofs
-
-Examples:
-  yamma compress demo0.mm th1
-  yamma compress set.mm impt dju1p1e2
 ```
 
 ### yamma truncate

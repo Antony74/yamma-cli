@@ -26,30 +26,6 @@ call yamma unify demo0.mm th1.mmp
 call yamma unify set.mm impt.mmp dju1p1e2.mmp
 
 @echo on
-call yamma decompress demo0.mm th1
-
-@echo on
-call yamma decompress set.mm impt dju1p1e2
-
-@echo on
-call checkmm demo0.mm
-
-@echo on
-call checkmm set.mm
-
-@echo on
-call yamma compress demo0.mm th1
-
-@echo on
-call yamma compress set.mm impt dju1p1e2
-
-@echo on
-call checkmm demo0.mm
-
-@echo on
-call checkmm set.mm
-
-@echo on
 call yamma truncate set.mm --before dju1p1e2
 
 @echo on
