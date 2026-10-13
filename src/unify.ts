@@ -34,7 +34,7 @@ export const unify = async (unifier: Unifier, mmpFilenames: string[]) => {
         });
 
         info(`unifying ${mmpFilename}`);
-        const result = unifier.unify(mmpUnunifiedData);
+        const result = await unifier.unify(mmpUnunifiedData);
 
         // Re-parse the mmp file because we need the diagnostics from after unification rather than before
         const mmpParser = parseMmp(result.text, unifier.mmParser);

@@ -9,25 +9,29 @@ import {
 
 import { createMmParserAndMonitor, pollMemory } from './heapStatistics';
 
-export const createUnifierWithProgress = async (
+export const createUnifierWithProgress = (
     mmFilename: string,
     mmData: string,
     singleThread: boolean,
-    deepParse: boolean,
-): Promise<Unifier> => {
-    const setProgress = (progress: number) => {
+): Unifier => {
+    const setProgress = (progress: number, done: boolean) => {
         process.stdout.write(
             '\r' +
                 color.gray(
                     `deep parsing ${mmFilename}... ${Math.round(progress * 100)}%`,
                 ),
         );
+
+        if (done) {
+            console.log();
+        }
+
         pollMemory();
     };
 
     const progressCallback: ProgressCallback = (message) => {
         if (message.kind === 'progress') {
-            setProgress(message.index / message.count);
+            setProgress(message.index / message.count, message.index === message.count);
         }
     };
 
@@ -50,13 +54,6 @@ export const createUnifierWithProgress = async (
     console.log(
         color.gray(`${proofCount} ${proofCount === 1 ? 'proof' : 'proofs'}`),
     );
-
-    if (deepParse) {
-        setProgress(0);
-        await unifier.deepParse();
-        setProgress(1);
-        console.log();
-    }
 
     return unifier;
 };

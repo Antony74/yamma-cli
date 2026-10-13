@@ -43,21 +43,19 @@ export const cli = async () => {
 
         switch (command) {
             case 'unify': {
-                const unifier = await createUnifierWithProgress(
+                const unifier = createUnifierWithProgress(
                     mmFile,
                     mmData,
                     args.singleThread,
-                    true,
                 );
                 await unify(unifier, args.mmpFiles);
                 break;
             }
             case 'get': {
-                const unifier = await createUnifierWithProgress(
+                const unifier = createUnifierWithProgress(
                     mmFile,
                     mmData,
                     true,
-                    false,
                 );
 
                 if (args.all) {
