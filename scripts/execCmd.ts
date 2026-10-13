@@ -4,7 +4,7 @@ export const execCmd = (
     command: string,
     options?: ExecOptions,
 ): Promise<string> => {
-   console.log(command);
+    console.log(command);
 
     return new Promise((resolve, reject) => {
         exec(

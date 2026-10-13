@@ -25,7 +25,6 @@ export const getPeakMB = () => peakMem;
 
 export const createMmParserAndMonitor: CreateMmParser = (...params) => {
     const mmParser = new MmParser(...params);
-     mmParser.on(MmParserEvents.newLabel, pollMemory);
+    mmParser.on(MmParserEvents.newLabel, pollMemory);
     return mmParser;
-}
-
+};

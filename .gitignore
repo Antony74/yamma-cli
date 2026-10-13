@@ -3,4 +3,6 @@ node_modules
 coverage
 *.log
 profile-*.txt
+scripts/*.js
 scripts/*.mm*
+scripts/*.d.ts

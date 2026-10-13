@@ -31,7 +31,10 @@ export const createUnifierWithProgress = (
 
     const progressCallback: ProgressCallback = (message) => {
         if (message.kind === 'progress') {
-            setProgress(message.index / message.count, message.index === message.count);
+            setProgress(
+                message.index / message.count,
+                message.index === message.count,
+            );
         }
     };
 

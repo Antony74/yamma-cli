@@ -2,7 +2,7 @@
 
 Command line interface (CLI) for the [Yamma](https://github.com/glacode/yamma) unifier and for working with [Metamath](https://us.metamath.org/) (.mm) and Metamath proof (.mmp) files.
 
-***Y***amma's ***a*** ***M***eta***m***ath proof ***a***ssistant for Visual Studio Code.
+***Y***amma's _**a**_ ***M***eta***m***ath proof ***a***ssistant for Visual Studio Code.
 
 This package allows it's unifier functionality to the accessed from the command line.
 
@@ -14,7 +14,7 @@ Requires NodeJS - https://nodejs.org
 
 With NodeJS installed, the command to install yamma-cli is
 
-``` shell
+```shell
 npm install --global yamma-cli
 ```
 
@@ -24,13 +24,13 @@ These can be found in the Metamath repository - https://github.com/metamath/set.
 
 [demo0.mm](https://github.com/metamath/set.mm/blob/develop/demo0.mm) is a nice simple example of a .mm file and, since the aim is to use the CLI here, it can be obtained with the following curl command
 
-``` shell
+```shell
 {{{curlDemo0}}}
 ```
 
 [set.mm](https://github.com/metamath/set.mm/blob/develop/set.mm) is the most commonly used and largest .mm file - 49MB at the time of writing - and can be obtained with the following curl command
 
-``` shell
+```shell
 {{{curlSetMm}}}
 ```
 
@@ -40,7 +40,7 @@ These can be found in the Metamath repository - https://github.com/metamath/set.
 {{{helpMain}}}
 ```
 
-As we can see from from the --help text, the `yamma` command has five sub-commands.  These are documented below.
+As we can see from from the --help text, the `yamma` command has five sub-commands. These are documented below.
 
 ### yamma get
 

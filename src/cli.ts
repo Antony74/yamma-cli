@@ -52,11 +52,7 @@ export const cli = async () => {
                 break;
             }
             case 'get': {
-                const unifier = createUnifierWithProgress(
-                    mmFile,
-                    mmData,
-                    true,
-                );
+                const unifier = createUnifierWithProgress(mmFile, mmData, true);
 
                 if (args.all) {
                     args.proofIds = Array.from(
