@@ -1,9 +1,9 @@
 {
     "name": "yamma-cli",
     "version": "1.0.0",
-    "main": "dist/index.js",
+    "main": "dist/src/index.js",
     "bin": {
-        "yamma": "dist/index.js"
+        "yamma": "dist/src/index.js"
     },
     "scripts": {
         "doc": "tsx scripts/doc.ts",
